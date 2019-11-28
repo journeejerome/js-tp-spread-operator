@@ -2,17 +2,18 @@
     const Spread = {
         init(){
             document.querySelector('html').className = 'js-enabled';
-            const h1 = document.querySelector('h1.jump').textContent;
-            this.title = "";
+            this.jump = document.querySelector('.jump');
+            this.jumpText = document.querySelector('.jump').textContent;
+            this.jump.textContent = "";
 
-            for(const elmnt of h1){
-                if(elmnt===' '){
-                    this.title = this.title + "<span>\u00A0</span>";
-                }else {
-                    this.title = this.title + "<span>" + elmnt + "</span>";
-                }
+            for(this.lettre of this.jumpText){
+                this.jump.insertAdjacentHTML("beforeend",`<span> ${(this.lettre === ' ') ? "\u00A0" : this.lettre}</span>`);
+                // if (this.lettre === ' ') {
+                //     this.jump.insertAdjacentHTML("beforeend", "<span> \u00A0 </span>");
+                // } else {
+                //     this.jump.insertAdjacentHTML("beforeend", "<span>" +this.lettre+ "</span>");
+                // }
             }
-            document.querySelector('h1.jump').innerHTML = this.title;
         }
     };
     Spread.init();
