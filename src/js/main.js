@@ -5,7 +5,9 @@
             this.jump = document.querySelector('.jump');
             this.jumpText = document.querySelector('.jump').textContent;
             this.jump.textContent = "";
-
+            this.boucle();
+        },
+        boucle(){
             for(this.lettre of this.jumpText){
                 this.jump.insertAdjacentHTML("beforeend",`<span> ${(this.lettre === ' ') ? "\u00A0" : this.lettre}</span>`);
                 // if (this.lettre === ' ') {
